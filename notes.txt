@@ -3,9 +3,12 @@
 folder for code we scripts we are writing to extract ROIs from our fMRI data
 
 example ROI gen command from http://ccn.ucla.edu/wiki/index.php/FSL:_Useful_commands
-
 fslmaths $FSLDIR/data/standard/MNI152_T1_2mm -mul 0 -add 1 -roi 50 1 50 1 50 1 0 1 point -odt float
 fslmaths point -kernel sphere 9 -fmean sphereres -odt float
+
+ours:
+fslmaths $FSLDIR/data/standard/MNI152_T1_2mm -mul 0 -add 1 -roi 50 1 50 1 50 1 0 1 point
+fslmaths point -kernel sphere 9 -dilF  sphereres2 
 
 
 using coordinates from:
@@ -13,3 +16,8 @@ Choosing Where to Attend and the Medial Frontal Cortex: An fMRI Study
 Paul C. J. Taylor, Matthew F. S. Rushworth and Anna C. Nobre
 J Neurophysiol 100:1397-1406, 2008. First published 2 July 2008; doi:10.1152/jn.90241.2008
 
+example coords
+X   Y   Z
+14  10  62
+-6  16  46
+4   18  36
