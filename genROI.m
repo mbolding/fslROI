@@ -22,12 +22,12 @@ for idx = 1:numCoords
     x = voxelspace(1);
     y = voxelspace(2);
     z = voxelspace(3);
-    outName = ['sphere.' strrep(num2str(coords(idx,:)),'  ','_')];
+    outName = ['sphere.' regexprep(num2str(coords(idx,:)),'\s*','_') '_r' num2str(radius)];
     
     pointCmd = sprintf('fslmaths %s -mul 0 -add 1 -roi %d 1 %d 1 %d 1 0 1 point',...
         templateImage,x,y,z);
     sphereCmd = sprintf('fslmaths point -kernel sphere %d -dilF %s',...
         radius,outName);
-    fprintf('%s\n%s\n',pointCmd,sphereCmd);
+    fprintf('%s\n%s\n\n',pointCmd,sphereCmd);
 end
 
