@@ -11,7 +11,7 @@ if ~exist('radius','var')
     radius = 12;
 end
 if ~exist('templateImage','var')
-    templateImage = '$FSLDIR/data/standard/MNI152_T1_2mm';
+    templateImage = '$FSLDIR/data/standard/MNI152_T1_1mm_brain';
     
 end
 
